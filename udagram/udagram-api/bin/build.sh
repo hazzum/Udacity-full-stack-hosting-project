@@ -1,8 +1,8 @@
 npm install . && npm run clean
-tsc || true
-cp .npmrc www/.npmrc || true
-cp package.prod.json www/package.json || true
-cd www || true 
-npx bestzip archive.zip * || true
+tsc
+cp .npmrc www/.npmrc
+cp package.prod.json www/package.json
+cd www 
+npx bestzip archive.zip *
 cd ..
 
