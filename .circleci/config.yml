@@ -4,6 +4,7 @@ orbs:
   node: circleci/node@5.0.2
   eb: circleci/aws-elastic-beanstalk@2.0.1
   aws-cli: circleci/aws-cli@3.1.1
+  browser-tools: circleci/browser-tools@1.4.0
   # different jobs are calles later in the workflows sections
 jobs:
   build:
@@ -46,12 +47,14 @@ jobs:
             npm run api:build
   test:
     docker:
-      - image: "cimg/node:16.17"
+      - image: "cimg/node:16.17-browsers"
     steps:
       # install node and checkout code
       - node/install:
           node-version: '16.17'         
       - checkout
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       # Use root level package.json to install dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
@@ -70,11 +73,13 @@ jobs:
       - run:
          name: run Front-End unit test
          command: |
-           npm run frontend:test || true
+          google-chrome --version
+          chromedriver --version
+          npm run frontend:test || true
       - run:
          name: run Front-End e2e test
          command: |
-           npm run api:e2e || true
+          npm run frontend:e2e || true
   # deploy step will run only after manual approval
   deploy:
     docker:
