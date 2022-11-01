@@ -81,8 +81,8 @@ jobs:
 workflows:
   udagram:
     jobs:
-      - build:
-      - test:
+      - build
+      - test
       - hold:
           filters:
             branches:
