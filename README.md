@@ -1,3 +1,6 @@
+# Status Badge
+[![CircleCI](https://circleci.com/gh/hazzum/Udacity-full-stack-hosting-project.svg?style=svg)](https://circleci.com/gh/hazzum/Udacity-full-stack-hosting-project)
+
 # Hosting a Full-Stack Application
 
 ### **Full-stack application hosting project for Udacity's Advanced Web Track.**
@@ -49,7 +52,7 @@
 - You should change the aws region too if you plan on using a different aws region from us-east-1
 #### 5- Edit the `apiHost` properties in `\udagram\udagram-frontend\src\environments\environment.prod.ts` and `udagram\udagram-frontend\src\environments\environment.ts` to the EB environment URL (this is inconvenient, but unfortunately there's no way of passing environment variables to S3 static websites).
 #### 6- Create a CircleCI account if you haven't already and link it to your GitHub account, then push the contents of the project to a new repository.
-#### 7- Manually add all necessary environment variables to the CircleCI project linked to the repository you just created:
+#### 7- Manually add all necessary environment variables to the CircleCI project linked to the repository you just created, from the project settings.
 Here's an example of how these environments variables are set up, the values are supplied from the previous steps:
 ```
 - POSTGRES_USERNAME=postgres
@@ -81,7 +84,7 @@ Here's an example of how these environments variables are set up, the values are
 - - API Build
 - - Build & install docker image for Chrome & Chrome Driver
 - - Front-End Test
-4. CI process involves the following steps:
+4. CD process involves the following steps:
 - - Prepare environment variables supplied from the project.
 - - Build & install docker image for node v16.17
 - - Install AWS CLI & Elastic Beanstalk CLI & configure AWS Access Key ID
@@ -92,10 +95,19 @@ Here's an example of how these environments variables are set up, the values are
 
 ## Screenshots:
 ### 1. Successfully running API app on Elastic Beanstalk
-!["pipeline work flow"](/screenshots/eb_instance.png "pipeline work flow")
+!["Elastic Beanstalk"](/screenshots/eb_instance.png "Elastic Beanstalk")
 ### 2. Successfully running RDS instance
-!["pipeline work flow"](/screenshots/rds_instance.png "pipeline work flow")
+!["RDS"](/screenshots/rds_instance.png "RDS")
 ### 3. Successfully creating an S3 bucket for media hosting
-!["pipeline work flow"](/screenshots/s3_media_bucket.png "pipeline work flow")
+!["S3 bucket for media hosting"](/screenshots/s3_media_bucket.png "S3 bucket for media hosting")
 ### 4. Successfully deploying the application
-!["pipeline work flow"](/screenshots/live_app_running.png "pipeline work flow")
+!["Live version"](/screenshots/live_app_running.png "Live version")
+### 5. Successful testing on CircleCI
+!["testing"](/screenshots/circle_ci_testing.png "testing")
+### 6. Successful build on CircleCI
+!["build"](/screenshots/circle_ci_build.png "build")
+### 7. Successful deployment on CircleCI
+!["deployment"](/screenshots/circle_ci_deployment.png "deployment")
+### 8. CircleCI supplying environment variables to production
+!["environment variables"](/screenshots/circle_ci_env.png "environment variables")
+!["environment variables"](/screenshots/circle_ci_env2.png "environment variables")
