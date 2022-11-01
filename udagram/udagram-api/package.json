@@ -13,7 +13,7 @@
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh",
-    "build": "sh ./bin/build.sh",
+    "build": "chmod +x bin/build.sh && bin/build.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
