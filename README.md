@@ -8,9 +8,9 @@
 ## Getting Started
 
 ### Here are the steps to reproduce this app's deployment:
-#### 1- Create a new AWS user with admin access using the IAM service, save the access id and secret key in a secure location (they will be needed later).
+#### 1- Create a new AWS user with admin privileges using the IAM service, save the access id and secret key in a secure location (they will be needed later).
 #### 2- Create a Postgres AWS RDS database instance and an S3 Bucket for Media Hosting.
-- Make sure to allow all connections in RDS connectivity inbound rules by adding a new role that allows all traffic from 0.0.0.0/0 (all sources) (for testing purposes only).
+- Make sure to allow all connections in RDS connectivity inbound rules by adding a new rule that allows all traffic from 0.0.0.0/0 (all sources) (for testing purposes only).
 - Make sure the S3 media hosting bucket is available for public access by adding the following policy to bucket policy, replace bucket_name with the name you chose:
 ```
 {
@@ -44,8 +44,9 @@
     }
 ]
 ```
-#### 3- Create a new EB environment that runs node v14 and create a new app. Save the environment name and app name.
+#### 3- Create a new EB environment that runs node v16 or later and create a new app. Save the environment name and app name.
 #### 4- Edit the `config.yml` file under `udagram\udagram-api\.elasticbeanstalk\` and replace the default environment name and app name with the values you just chose.
+- You should change the aws region too if you plan on using a different aws region from us-east-1
 #### 5- Edit the `apiHost` properties in `\udagram\udagram-frontend\src\environments\environment.prod.ts` and `udagram\udagram-frontend\src\environments\environment.ts` to the EB environment URL (this is inconvenient, but unfortunately there's no way of passing environment variables to S3 static websites).
 #### 6- Create a CircleCI account if you haven't already and link it to your GitHub account, then push the contents of the project to a new repository.
 #### 7- Manually add all necessary environment variables to the CircleCI project linked to the repository you just created:
