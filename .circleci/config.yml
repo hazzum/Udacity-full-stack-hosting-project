@@ -30,29 +30,16 @@ jobs:
           command: |
             npm run api:install
       # Lint the frontend
-      - run:
-          name: Front-End Lint
-          command: |
-            npm run frontend:lint
+      # - run:
+      #     name: Front-End Lint
+      #     command: |
+      #       npm run frontend:lint
       # Build the frontend app
       - run:
           name: Front-End Build
           command: |
             npm run frontend:build
-      # Build the backend API      
-      - run:
-          name: API Build
-          command: |
-            npm run api:build
-  test:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/node:14.15"
-    steps:
-      # install node and checkout code
-      - node/install:
-          node-version: '14.15'         
-      - checkout
+      # Test the frontend app
       - run:
           name: run Front-End unit test
           command: |
@@ -61,6 +48,11 @@ jobs:
           name: run Front-End e2e test
           command: |
             npm run api:e2e
+      # Build the backend API      
+      - run:
+          name: API Build
+          command: |
+            npm run api:build
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -82,7 +74,6 @@ workflows:
   udagram:
     jobs:
       - build
-      - test
       - hold:
           filters:
             branches:
@@ -91,7 +82,6 @@ workflows:
           type: approval
           requires:
             - build
-            - test
       - deploy:
           requires:
             - hold
