@@ -1,2 +1,3 @@
-npm install . && npm run clean && tsc
+npm install . && npm run clean
+tsc || true
 cp -R .elasticbeanstalk www/.elasticbeanstalk/ && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && npx bestzip archive.zip * && cd ..
