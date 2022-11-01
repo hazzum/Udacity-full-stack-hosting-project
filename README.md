@@ -1,5 +1,5 @@
 # Status Badge
-[![CircleCI](https://circleci.com/gh/hazzum/Udacity-full-stack-hosting-project.svg?style=svg)](https://circleci.com/gh/hazzum/Udacity-full-stack-hosting-project?status=success)
+[![CircleCI](https://circleci.com/gh/hazzum/Udacity-full-stack-hosting-project.svg?style=svg)](https://app.circleci.com/pipelines/github/hazzum/Udacity-full-stack-hosting-project)
 
 # Hosting a Full-Stack Application
 
