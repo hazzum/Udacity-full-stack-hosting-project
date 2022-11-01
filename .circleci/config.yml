@@ -44,6 +44,23 @@ jobs:
           name: API Build
           command: |
             npm run api:build
+  test:
+    docker:
+      # the base image can run most needed actions with orbs
+      - image: "cimg/node:14.15"
+    steps:
+      # install node and checkout code
+      - node/install:
+          node-version: '14.15'         
+      - checkout
+      - run:
+          name: run Front-End unit test
+          command: |
+            npm run frontend:test
+      - run:
+          name: run Front-End e2e test
+          command: |
+            npm run api:e2e
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -65,6 +82,7 @@ workflows:
   udagram:
     jobs:
       - build:
+      - test:
       - hold:
           filters:
             branches:
@@ -73,6 +91,7 @@ workflows:
           type: approval
           requires:
             - build
+            - test
       - deploy:
           requires:
             - hold
