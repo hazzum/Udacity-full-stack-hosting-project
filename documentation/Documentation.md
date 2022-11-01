@@ -19,6 +19,6 @@ The application runs on the following infrastructure.
 - A S3 bucket for hosting uploaded pictures.
 ```
 ### 3- Pipeline process
-!["pipeline_workflow"](diagram.png "pipeline_workflow")
+!["Pipeline process"](pipeline_workflow.png "Pipeline process")
 ### 4- AWS architecture diagram
 !["AWS architecture diagram"](diagram.png "AWS architecture diagram")
