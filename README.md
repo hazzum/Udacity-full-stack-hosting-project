@@ -1,5 +1,5 @@
 # Status Badge
-[![CircleCI](https://circleci.com/gh/hazzum/Udacity-full-stack-hosting-project.svg?style=svg)](https://circleci.com/gh/hazzum/Udacity-full-stack-hosting-project)
+[![CircleCI](https://circleci.com/gh/hazzum/Udacity-full-stack-hosting-project.svg?style=svg)](https://circleci.com/gh/hazzum/Udacity-full-stack-hosting-project?status=success)
 
 # Hosting a Full-Stack Application
 
@@ -67,7 +67,7 @@ Here's an example of how these environments variables are set up, the values are
 - PORT=8080
 - JWT_SECRET=[some_secret_string]
 - AWS_ACCESS_KEY_ID=[some_secret_string]
-- AWS_DEFAULT_REGION=[aws_region]
+- AWS_DEFAULT_REGION=[aws_region] (for circleci aws configuration)
 - AWS_SECRET_ACCESS_KEY=[some_secret_string]
 ```
 #### 8- You can edit the `config.yml` under `.circleci` to modify the pipeline workflow in any way you want.
