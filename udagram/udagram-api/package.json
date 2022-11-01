@@ -13,7 +13,7 @@
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh",
-    "build": "chmod +x bin/build.sh && bin/build.sh",
+    "build": "npm install . && npm run clean && tsc & cp -rf src/config www/config & cp -R .elasticbeanstalk www/.elasticbeanstalk & cp .npmrc www/.npmrc & cp package.json www/package.json & cd www & npx bestzip archive.zip * & cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

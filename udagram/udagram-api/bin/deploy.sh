@@ -1,1 +1,1 @@
-npm run build && eb create udagram-api-env && eb use udagram-api-env && eb deploy --staged
+npm run build && cd www && eb use udagram-api-env && eb deploy --staged
